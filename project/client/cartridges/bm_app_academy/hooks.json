@@ -1,0 +1,8 @@
+{
+    "hooks": [
+        {
+            "name": "dw.ocapi.data.object.afterPut",
+            "script": "./cartridge/scripts/hooks/order/processOrder.js"
+        }
+    ]
+}

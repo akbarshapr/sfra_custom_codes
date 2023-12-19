@@ -1,0 +1,58 @@
+{
+    "step-types": {
+        "script-module-step": [
+            {
+                "@type-id": "custom.EmployeeAssessmentEmail",
+                "@supports-parallel-execution": "false",
+                "@supports-site-context": "true",
+                "@supports-organization-context": "false",
+                "description": "This job step script scans assessment report and sends an email containing the assessment information. It runs in site scope.",
+                "module": "app_academy/cartridge/scripts/steps/sendAssessmentEmail.js",
+                "function": "getEmployeeInformation",
+                "transactional": "true",
+                "timeout-in-seconds": "900",
+                "parameters": {
+                    "parameter": [
+                        {
+                            "@name": "FileName",
+                            "@type": "string",
+                            "description": "An required parameter specifying the name of the file to be scanned."
+                        },
+                        {
+                            "@name": "FolderName",
+                            "@type": "string",
+                            "description": "An required parameter specifying the name of the folder where the file is stored."
+                        },
+                        {
+                            "@name": "ccEmailId",
+                            "@type": "string",
+                            "description": "An required parameter specifies the email id to be set as the cc address."
+                        },
+                        {
+                            "@name": "EvaluatorName",
+                            "@type": "string",
+                            "@required": "false",
+                            "description": "An required parameter specifies the name of the evaluator to be included in the email."
+                        }
+                    ]
+                },
+                "status-codes": {
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "FINISHED",
+                            "description": "Used when the step finished successfully."
+                        },
+                        {
+                            "@code": "FINISHED_WITH_WARNINGS",
+                            "description": "Used when the step finished with warnings."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
